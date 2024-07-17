@@ -10,7 +10,6 @@ FORMATS = {
     'J': '{imm_20}{imm_10_1:010}{imm_11}{imm_19_12:08}{rd:05}{opcode:07}',
 }
 
-# Define the opcode, funct3, and funct7 for each instruction
 INSTRUCTION_SET = {
     'add':  ('0110011', '000', '0000000', 'R'),
     'sub':  ('0110011', '000', '0100000', 'R'),
@@ -44,7 +43,17 @@ INSTRUCTION_SET = {
     'auipc':('0010111', None, None, 'U'),
     'ecall':('1110011', '000', '0000000', 'I'),
     'ebreak':('1110011', '000', '0000001', 'I'),
+    # M extension instructions
+    'mul':    ('0110011', '000', '0000001', 'R'),
+    'mulh':   ('0110011', '001', '0000001', 'R'),
+    'mulhsu': ('0110011', '010', '0000001', 'R'),
+    'mulhu':  ('0110011', '011', '0000001', 'R'),
+    'div':    ('0110011', '100', '0000001', 'R'),
+    'divu':   ('0110011', '101', '0000001', 'R'),
+    'rem':    ('0110011', '110', '0000001', 'R'),
+    'remu':   ('0110011', '111', '0000001', 'R'),
 }
+
 
 def register_to_bin(register):
     """Convert register name to binary representation"""
